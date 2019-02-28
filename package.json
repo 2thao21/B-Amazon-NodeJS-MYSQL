@@ -1,0 +1,23 @@
+{
+  "name": "bamazon-nodejs-mysql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bAmazon.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2thao21/BAmazon-NodeJS-MYSQL.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/2thao21/BAmazon-NodeJS-MYSQL/issues"
+  },
+  "homepage": "https://github.com/2thao21/BAmazon-NodeJS-MYSQL#readme",
+  "dependencies": {
+    "inquirer": "^6.2.2",
+    "mysql": "^2.16.0"
+  }
+}
