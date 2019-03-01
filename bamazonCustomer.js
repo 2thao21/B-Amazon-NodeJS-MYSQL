@@ -11,61 +11,68 @@ var connection = mysql.createConnection({
     password: "root",
     database: "bAmazonDB"
   });
-  connection.connect(function (err) {
-    if (err) throw err;
-    // console.log("connected as id " + connection.threadID);
-    
-    afterConnection();
-  });
+  
+  function afterConnection(){
+      connection.query("SELECT * FROM products", function(err, response){
+          if (err) throw err;
+          console.log("                          Welcome to BAmazon" + "\n");
+          for (var i = 0; i < response.length; i++){
+              console.log("ID: " + response[i].id + " || " + "Product Name: " + response[i].product_name + " || "
+              + "Department: " + response[i].department_name + " || " + "Price: " + response[i].price + "\n");
+          }
 
-  function afterConnection() {
-    connection.query("SELECT * FROM products", function(err, res) {
-      if (err) throw err;
-      
-      whatToBuy();
-    //   console.log(res.product_name, res.department_name, res.price);
-      connection.end();
-    });
-  }
+     whatToBuy();
+      })
+  };
 
   function whatToBuy(){
-      var itemsArr = []
-      var query = "SELECT * FROM products";
-      connection.query(query, function(err, res){
-          if (err) throw err;
-
-          for (let i in res){
-              itemsArr.push(res[i].id, res[i].department_name, res[i].product_name, res[i].price)
+    
+    // creating inquirer prompt for customer to choose item id and quantity
+      inquirer.prompt([
+          {
+            name: "itemsForSale",
+            type: "input",
+            message: "What would you like to buy from the available inventory? Please enter in the item ID: ",
+         
+          },
+          {
+            name: "quantitySelected",
+            type: "input",
+            message: "Please enter in the quantity you would like to purchase: "
           }
-          inquirer.prompt([
-            {
-                name: "itemsForSale",
-                type: "choice",
-                message: "What would you like to buy from the available inventory?",
-                choices: itemsArr
-            }
-        ])
-        .then(function(answers){
-            console.log("These are the items available for sale: " + answers.itemsForSale);
-            queryitem(answers.itemsForSale);
-        })
+      ])
+      .then(function(answers){
+            var idInput = answers.itemsForSale;
+            var quantityInput = answers.quantitySelected;
+            yourPurchase(idInput, quantityInput);
       })
   }
 
-  function queryitem(products) {
-    var query = "SELECT * FROM items WHERE name ='" + products + "';";
-    connection.query(query, function (err, res) {
-      if (err) throw err;
-      // console.log(res);
-      console.log("Information is as follows:")
-      console.log(
-        "--------------------------------" +
-        "\nItem ID:      " + res[0].name +
-        "\nProduct Name:         " + res[0].product_name +
-        "\nPrice:    " + res[0].price 
-      )
-      chosenItemObject = res[0]
-    //   price(chosenItemObject.highestBid)
-    })
-    
+  function yourPurchase(idSelected, quantityInput){
+    connection.query("SELECT * FROM products WHERE id = " + idSelected, function(err, response){
+        if (err) throw err;
+
+        if (quantityInput <= response[0].stock_quantity){
+            var priceTotal = response[0].price * quantityInput;
+            console.log("Here is your total cost: $" + priceTotal + " for "  + quantityInput + " " + response[0].product_name + "\n");
+            console.log("Thank you for your purchase!");
+
+            // attempt to update database after successful purchase
+
+            // connection.query("UPDATE products SET stock_quantity = " + (response[0].stock_quantity - quantityInput) + "WHERE id= " + idSelected, function(err, response){
+            //     // if (err) throw err;
+            //     console.log("Only " + response[0].stock_quantity + " " + response[0].product_name + " left in inventory");
+            // })
+
+            // Could not get database to update. Had to comment out above code. 
+            
+        }
+        else {
+            console.log("Apologies, insufficient quantity" + " " + response[0].product_name);
+            
+        }
+        connection.end();
+    });
   }
+
+afterConnection();

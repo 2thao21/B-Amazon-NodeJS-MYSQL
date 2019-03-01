@@ -13,31 +13,31 @@ CREATE TABLE products(
 );
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("BAmazonBASE Intro to JavaScript", "Books", 39, 50), ("BAmazonBASE Intro to Python", "Books", 39, 50);
+VALUES ("BAmazonBASEK Intro to JavaScript", "Books", 39, 50), ("BAmazonBASEK Intro to Python", "Books", 39, 50);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("BAmazonBASE Alaxy S12", "Cell Phones & Accessories", 900, 10);
+VALUES ("BAmazonBASEK Alaxy S12", "Cell Phones & Accessories", 900, 10);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("BAmazonBASE 1TB microSD card", "Electronics", 450, 25);
+VALUES ("BAmazonBASEK 1TB microSD card", "Electronics", 450, 25);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("BAmazonBASE Running Shoes", "Clothing & Shoes", 50, 40);
+VALUES ("BAmazonBASEK Running Shoes", "Clothing & Shoes", 50, 40);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("BAmazonBASE Bed Sheet", "Bedding & Bath", 24, 100);
+VALUES ("BAmazonBASEK Bed Sheet", "Bedding & Bath", 24, 100);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("BAmazonBASE Laptop", "Laptops", 999, 1);
+VALUES ("BAmazonBASEK Laptop", "Laptops", 999, 1);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("BAmazonBASE Espresso Machine", "Home & Kitchen", 115, 4);
+VALUES ("BAmazonBASEK Espresso Machine", "Home & Kitchen", 115, 4);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("BAmazonBASE Hoodie", "Clothing & Shoes", 55, 12);
+VALUES ("BAmazonBASEK Hoodie", "Clothing & Shoes", 55, 12);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("BAmazonBASE Shovel ", "Garden & Outdoor", 11, 32);
+VALUES ("BAmazonBASEK Shovel ", "Garden & Outdoor", 11, 32);
 
 
 
