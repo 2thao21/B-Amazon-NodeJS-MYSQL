@@ -38,6 +38,6 @@ Make sure you save and require the MySQL and Inquirer npm packages in your homew
 
 * Added to Portfolio
 
-- https://wthao21.github.io/Responsive-Portfolio/portfolio.html
+- https://2thao21.github.io/Responsive-Portfolio/portfolio.html
 
  
