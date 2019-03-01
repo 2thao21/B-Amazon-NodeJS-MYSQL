@@ -19,6 +19,7 @@ Make sure you save and require the MySQL and Inquirer npm packages in your homew
 
 * First prompt asks for customers to input a product ID, if interested in purchasing said product.
 * Second prompt asks customer to input the quantity for their desired purchase.
+* After inputs, application will return the total cost for purchase.
 
 ![Sufficient-inventory](https://github.com/2thao21/BAmazon-NodeJS-MYSQL/blob/master/images/customerJS2.JPG)
 
